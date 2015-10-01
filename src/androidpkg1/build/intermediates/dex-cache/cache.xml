@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_core/rosjava/0.2.1/rosjava-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5e5f354c749171969b9323ebbaad2afc36c6ec7c">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/rosjava-0.2.1-139757dca4420b88958c253eaa34d137c1a26f40.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-05cda4268f90bf83afe3ec35ccba36bf5a1defda.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/sensor_msgs/1.11.8/sensor_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b10241abe84c7c4a1d59f9825b515ef11040a4af">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/sensor_msgs-1.11.8-e249aa13b919cf08e31dcccfed03a395bd392ab9.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/rosjava_test_msgs/0.2.1/rosjava_test_msgs-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6f75a9e1bb669304a8667960490b62c04207de54">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/rosjava_test_msgs-0.2.1-79f0c39bd149095bd35adfbbcad8f8beca405898.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/exploded-aar/org.ros.android_core/android_10/0.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c3a30924c3f64ed4870fa76411f01ae2be62abcc">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-4051ea73186700c9196ef32bfccfea7b2df02c20.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/exploded-aar/org.ros.android_core/android_15/0.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e6d5fabcb9dfff241dfdfbb0fc835fbc3a7f9ca9">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-4280ff62153652ffe971302ed0d426c77e27d1d5.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/native-libs/native-libs-0.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6f318c5369cc3e822816e6371be94b7058e05747">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/native-libs-0.1.0-5b4fb58cc17c77d57a5f88dbd30d1c2a97187c97.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_core/apache_xmlrpc_common/0.2.1/apache_xmlrpc_common-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="15f818e706f514ba62615c8d3e1887c1c39993ec">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/apache_xmlrpc_common-0.2.1-463f00cf41c202e679a28f88d8bdb03dbadd812c.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-5e921019667aaf9f7dcf1d530802c463153b63dd.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.lang/2.4.0/686e3713650c8e3a5d98723b4d3e239586bf9822/com.springsource.org.apache.commons.lang-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="686e3713650c8e3a5d98723b4d3e239586bf9822">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.lang-2.4.0-2a6ebd1fee3f44b67ea89ba2e6096df348f664f5.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_bootstrap/gradle_plugins/0.2.1/gradle_plugins-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ce3bcb1cc346e752e0fcca56702c6815c47b2d33">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/gradle_plugins-0.2.1-3ca41087091e8a6d62524f61103437f41ca87422.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/jsr305-1.3.9-01c786adceae30afa728518edf483d8165d1bd5c.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.net/2.0.0/3e78766072ff5a5cf3f5431d973c430c94ec612/com.springsource.org.apache.commons.net-2.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="03e78766072ff5a5cf3f5431d973c430c94ec612">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.net-2.0.0-18e21a98f4841cbf2e98d968276f8c3f8a59803e.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/exploded-aar/org.ros.android_core/android_10/0.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c3a30924c3f64ed4870fa76411f01ae2be62abcc">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-4691f2b448fcf4923695c45b80db002c97a49d7b.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/test2/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-d766b070c0bf4c233c98d38a2632eb99e57eb75f.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.6/4572d589699f09d866a226a14b7f4323c6d8f040/commons-pool-1.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4572d589699f09d866a226a14b7f4323c6d8f040">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/commons-pool-1.6-f66b2fd9f9d9f5b99fe6a516e754f7d8784a0310.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/tf2_msgs/0.5.12/tf2_msgs-0.5.12.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0d0af8b7265c7598848b888525e91a4f85ec4475">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/tf2_msgs-0.5.12-fff269c9b754caca76a04898579a2818bc3ae38a.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/diagnostic_msgs/1.11.8/diagnostic_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="411f1253a56d17cbf7463f9ef81e0e831d052367">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/diagnostic_msgs-1.11.8-68a23d714b0ba367244f6e2115ddd77de4d75a5f.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-a0d4c618155b2db81997c706ef60ce4832f121e7.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/nav_msgs/1.11.8/nav_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bcb9e4f52139420942bc04cc225cb3a9a56fe161">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/nav_msgs-1.11.8-de9265c2a5087438ec7ef4e14650c9bfc901a0a4.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/rosgraph_msgs/1.11.1/rosgraph_msgs-1.11.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="577fbf1f6c10a36b64c45fa5b1ba10646e8f5ba4">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/rosgraph_msgs-1.11.1-102a43faf9239eba7bc0d4da46cd8f62b5151902.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/dnsjava/dnsjava/2.1.1/5708df81cf6dbff545695f0be6380b7bbc85accc/dnsjava-2.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5708df81cf6dbff545695f0be6380b7bbc85accc">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/dnsjava-2.1.1-b936c9b9fea36f0201d9a9ed79c573680eebb67c.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/native-libs/native-libs-0.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7a4abf3321c46286a487b30172064e8355f9c15d">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/native-libs-0.1.0-1f9dd9ec67d6183d963dd8c4379b6ec73a1a4aee.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-c98bee8290674c5116c8552a764fc2065d47daeb.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.codec/1.3.0/f8690570eb0913d750262bb4223eed30b0d619ed/com.springsource.org.apache.commons.codec-1.3.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f8690570eb0913d750262bb4223eed30b0d619ed">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.codec-1.3.0-f11e25e18945259e99112714c7763a4e7f13cbd1.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/exploded-aar/org.ros.android_core/android_15/0.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e6d5fabcb9dfff241dfdfbb0fc835fbc3a7f9ca9">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/classes-d9540ae778f215314a0111ec81982abb090ace59.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_core/apache_xmlrpc_client/0.2.1/apache_xmlrpc_client-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="60e3c618db160618da798b5d41e062aec8385bd0">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/apache_xmlrpc_client-0.2.1-b9b4078ab032305aa481ec1d0868aefaad88b5be.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_core/apache_xmlrpc_server/0.2.1/apache_xmlrpc_server-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="91c2f2a08f36454a093aec85ad81f46059c79d07">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/apache_xmlrpc_server-0.2.1-e5da805a3828026b03007594e6df72211c293c30.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.ws.commons/ws-commons-util/1.0.1/126e80ff798fece634bc94e61f8be8a8da00be60/ws-commons-util-1.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="126e80ff798fece634bc94e61f8be8a8da00be60">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/ws-commons-util-1.0.1-f8c797ca56b5d2fbd9a7971a6bf27efdf646b191.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.httpclient/3.1.0/c493a925a091ac3d8f449d9265fe12482dabb2a7/com.springsource.org.apache.commons.httpclient-3.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c493a925a091ac3d8f449d9265fe12482dabb2a7">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.httpclient-3.1.0-603702b036085fe9422c40315b9b5a80827a7366.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/geometry_msgs/1.11.8/geometry_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d0a769aa38d68fe448e07b09e2b1a46187443c2">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/geometry_msgs-1.11.8-b955ba05c5c68a6e3ab02bec66ffa77cf576412c.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/io.netty/netty/3.5.2.Final/e6fb74a0699abe108969b2ec1f269391169a0426/netty-3.5.2.Final.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e6fb74a0699abe108969b2ec1f269391169a0426">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/netty-3.5.2.Final-b4412c1c1ec84b6101037d458574c14a0c9ca6e1.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/12.0/5bc66dd95b79db1e437eb08adba124a3e4088dc0/guava-12.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5bc66dd95b79db1e437eb08adba124a3e4088dc0">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/guava-12.0-a1003d443089bd6357fc9dfeb74963febaf3d3bb.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.logging/1.1.1/7657caf2c78e1d79c74d36f2ae128a115f7cc180/com.springsource.org.apache.commons.logging-1.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7657caf2c78e1d79c74d36f2ae128a115f7cc180">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.logging-1.1.1-3489da79126ec394bc6460efca91b454df014f6e.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/std_msgs/0.5.9/std_msgs-0.5.9.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="79df492c146f4e284759b0730b1d77335aa14f56">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/std_msgs-0.5.9-eabb27de588bfce3d5b8133b1b43ef89991637bc.jar" />
+    </item>
+    <item
+        jar="/home/ecorbellini/.gradle/caches/modules-2/files-2.1/org.apache.commons/com.springsource.org.apache.commons.io/1.4.0/51097cd000ec88214ff181c9f059947de1cf4a35/com.springsource.org.apache.commons.io-1.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="51097cd000ec88214ff181c9f059947de1cf4a35">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/com.springsource.org.apache.commons.io-1.4.0-fc979d4b7b18b8d774b640aac6254c7412f9646e.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_bootstrap/message_generation/0.2.1/message_generation-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="042bb451e318e337398938d0cc449ebded236fee">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/message_generation-0.2.1-2fba721c439e2b4d341c253db8ea70791bb6d064.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_core/rosjava_geometry/0.2.1/rosjava_geometry-0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e5d42c9109769b14b92ec1006201754990e07be7">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/rosjava_geometry-0.2.1-eee5b8eb9aff1c86d83ab461fbb9b6470b0e7036.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/visualization_msgs/1.11.8/visualization_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1b50806387f66e9219c23f3e3b8fea0371a44c2b">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/visualization_msgs-1.11.8-5c5ec4815d99645e6d6588e48c8fa6b735e97cc2.jar" />
+    </item>
+    <item
+        jar="/opt/ros/indigo/share/maven/org/ros/rosjava_messages/actionlib_msgs/1.11.8/actionlib_msgs-1.11.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5810e64652dccb07b33c7b5464b3064f91638fc9">
+        <dex dex="/home/ecorbellini/Android/rosjava_android_test/roloc/src/androidpkg1/androidp1/build/intermediates/pre-dexed/debug/actionlib_msgs-1.11.8-b6c79f0a5049ceba3686f115fdbd262a85d2b997.jar" />
+    </item>
+
+</items>

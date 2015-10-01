@@ -1,0 +1,8 @@
+prefix=/home/ecorbellini/Android/rosjava_android_test/roloc/devel
+
+Name: androidpkg1
+Description: Description of androidpkg1
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/ecorbellini/Android/rosjava_android_test/roloc/devel/lib 
+Requires: 
