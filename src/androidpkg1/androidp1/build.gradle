@@ -30,6 +30,8 @@ dependencies {
   //compile files('src/main/libs/snakeyaml-android-1.8-SNAPSHOT.jar')
   //compile 'org.yaml:snakeyaml:1.8'
   compile fileTree(dir: "$buildDir/native-libs", include: '*.jar')
+  compile 'com.github.creativa77.base_controller:base_controller:[0.1.1, 0.2)'
+  compile 'com.hoho.android.usbserial:UsbSerialLibrary:[0.1.1, 0.2)'
 }
 
 
