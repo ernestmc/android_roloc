@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>usb_serial_for_android</name>
+  <version>0.1.1</version>
+  <description>
+    Library for talking to Arduinos and other USB serial devices on Android, using USB Host mode and Android 3.1+
+  </description>
+  <url>https://github.com/mik3y/usb-serial-for-android</url>
+  <maintainer email="lucas@creativa77.com.ar">Lucas Chiesa</maintainer>
+  <author email="opensource@hoho.com">mike w</author>
+  <license>LGPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rosjava_build_tools</build_depend>
+  <build_depend>rosjava_bootstrap</build_depend>
+  <run_depend>rosjava_build_tools</run_depend>
+  <run_depend>rosjava_bootstrap</run_depend>
+</package>

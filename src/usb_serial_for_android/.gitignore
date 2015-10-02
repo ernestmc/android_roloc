@@ -1,0 +1,21 @@
+.classpath
+.gradle
+.project
+.settings
+bin
+build
+build.xml
+gen
+libs
+local.properties
+proguard-project.txt
+robot_main/src/main/obj
+robot_main/run.sh
+
+# These are Android Studio files, might be worth including these later.
+.idea
+*.iml
+build.log
+build-log.xml
+docs.iml
+
