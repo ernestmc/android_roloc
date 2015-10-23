@@ -93,6 +93,13 @@ public class ParameterLoaderNode implements NodeMain
                           false, false, false,
                           false, false, false,
                           true, true, true};
+                          
+    boolean odomConfig[] = {true, true, false,
+                          false, false, false,
+                          false, false, false,
+                          false, false, false,
+                          false, false, false};
+                          
     String nodeName = "/localization_jni";
     
     paramTree.set(nodeName + "/two_d_mode", true);
@@ -100,6 +107,9 @@ public class ParameterLoaderNode implements NodeMain
     
     paramTree.set(nodeName + "/imu0", "/android/imu");        
     paramTree.set(nodeName + "/imu0_config", vectorize(imuConfig));
+    
+    paramTree.set(nodeName + "/odom0", "/odom");
+    paramTree.set(nodeName + "/odom0_config", vectorize(odomConfig));
   }
   
   /**
