@@ -1,6 +1,9 @@
 .idea/
 build/
 devel/
+src/androidpkg1/androidp1/build/
+!src/androidpkg1/androidp1/build/outputs/
 .gradle/
 *local.properties
 *.iml
+.catkin_workspace
