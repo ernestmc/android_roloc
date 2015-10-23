@@ -99,7 +99,7 @@ public class Androidp1 extends RosActivity
     {
         super.onCreate(savedInstanceState);
         // Keep the screen always on
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // UI
         //setContentView(R.layout.main);
@@ -176,6 +176,7 @@ public class Androidp1 extends RosActivity
         localizationNativeNode = new LocalizationNativeNode();
         
         nodeMainExecutor.execute(localizationNativeNode, nodeConfiguration);
+        Log.i(TAG, "Localization started.");
     }
     
     // Create IMU publisher node
@@ -191,13 +192,14 @@ public class Androidp1 extends RosActivity
         
         imuNode = new ImuPublisher(mSensorManager);
         
-        Log.i(TAG, "About to execute ImuNode...");
         nodeMainExecutor.execute(imuNode, nodeConfiguration);
+        Log.i(TAG, "imu started.");
     }
     
     // Load the parameter loader node. It dies as soon as it loads the parameters.
     private void startParameterLoader()
     {
+        Log.i(TAG, "Loading parameters.");
         NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(hostName);
 
         nodeConfiguration.setMasterUri(masterUri);
@@ -208,10 +210,11 @@ public class Androidp1 extends RosActivity
         nodeMainExecutor.execute(paramNode, nodeConfiguration);
     }
     
-    /*@Override
+    @Override
     public void onResume()
     {
         super.onResume();
+        Log.i(TAG, "Resuming...");
         registerReceiver(usbAttachedReceiver, new IntentFilter(ACTION_USB_PERMISSION));
         registerReceiver(usbDetachedReceiver, new IntentFilter(UsbManager.ACTION_USB_DEVICE_DETACHED));
     }
@@ -220,19 +223,22 @@ public class Androidp1 extends RosActivity
     public void onPause()
     {
         super.onPause();
-        /*unregisterReceiver(usbAttachedReceiver);
+        Log.i(TAG, "Pausing...");
+        // unregisterReceiver(usbAttachedReceiver);
         unregisterReceiver(usbDetachedReceiver);
-    };*/
+    }
     
     @Override
     protected void onNewIntent(Intent intent)
     {
         super.onNewIntent(intent);
+        Log.i(TAG, "Usb new intent...");
         onUsbDeviceAttached(intent);
     }
 
     private void onUsbDeviceAttached(Intent intent)
     {
+        Log.i(TAG, "Usb device attached.");
         if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED))
         {
             UsbDevice usbDevice = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
@@ -265,6 +271,7 @@ public class Androidp1 extends RosActivity
      */
     private void onDeviceReady(final UsbDevice device)
     {
+        Log.i(TAG, "USB device ready.");
         new Thread()
         {
             @Override
