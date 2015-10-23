@@ -41,6 +41,7 @@ import android.hardware.usb.UsbManager;
 import android.app.PendingIntent;
 import android.util.Log;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
