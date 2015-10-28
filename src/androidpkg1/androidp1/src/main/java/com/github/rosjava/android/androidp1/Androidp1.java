@@ -164,6 +164,23 @@ public class Androidp1 extends RosActivity
         
     }
     
+    public void onStop()
+    {
+        super.onStop();
+        Log.i(TAG, "Androidp1 stopping...");
+    }
+    
+    public void onDestroy()
+    {
+        super.onDestroy();
+        Log.i(TAG, "Androidp1 destroying...");
+    }
+    
+    public void onConfigurationChanged (Configuration newConfig)
+    {
+        Log.i(TAG, "Androidp1 received configuration change...");
+    }
+    
     // Create a native robot_localization node
     private void startLocalization()
     {
