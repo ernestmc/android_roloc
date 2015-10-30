@@ -85,17 +85,18 @@ public class ParameterLoaderNode implements NodeMain
   /**
    * Load configuration parameters for the robot_localization node.
    * @param paramTree the parameter tree object representing the ROS parameter server.
+   * X, Y, Z, roll, pitch, yaw, X velocity, Y velocity, Z velocity, roll velocity, pitch velocity, yaw velocity, X acceleration, Y acceleration, and Z acceleration
    */
   private void configRobotLocalization(ParameterTree paramTree)
   {
     boolean imuConfig[] = {false, false, false,
-                          true, true, true,
                           false, false, false,
                           false, false, false,
-                          true, true, true};
+                          false, false, true,
+                          true, false, false};
                           
     boolean odomConfig[] = {true, true, false,
-                          false, false, false,
+                          false, false, true,
                           false, false, false,
                           false, false, false,
                           false, false, false};
@@ -113,7 +114,7 @@ public class ParameterLoaderNode implements NodeMain
   }
   
   /**
-   * Converts and array to a vector.
+   * Converts an array to a vector.
    * @param a Array of elements to convert to a vector.
    * @return A vector with a copy of all the elements of the array.
    */
