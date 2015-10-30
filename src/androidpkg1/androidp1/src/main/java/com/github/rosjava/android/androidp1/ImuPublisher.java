@@ -105,6 +105,12 @@ public class ImuPublisher implements NodeMain
   
   private class SensorListener implements SensorEventListener
   {
+    // Linear acceleration covariance (default = 0.01)
+    private final double accelCov = 0.01 * 2;
+    // Angular velocity covariance (default = 0.0025)
+    private final double angvelCov = 0.0025 * 2;
+    // Orientation covariance (default = 0.001)
+    private final double orientCov = 0.001;
 
     private Publisher<Imu> publisher;
     
@@ -144,7 +150,7 @@ public class ImuPublisher implements NodeMain
       this.imu.getLinearAcceleration().setY(event.values[1]);
       this.imu.getLinearAcceleration().setZ(event.values[2]);
       
-      double[] tmpCov = {0.01,0,0, 0,0.01,0, 0,0,0.01};// TODO Make Parameter
+      double[] tmpCov = {accelCov, 0, 0, 0, accelCov, 0, 0, 0, accelCov};// TODO Make Parameter
       this.imu.setLinearAccelerationCovariance(tmpCov);
       this.accelTime = event.timestamp;
     }
@@ -153,7 +159,7 @@ public class ImuPublisher implements NodeMain
       this.imu.getAngularVelocity().setX(event.values[0]);
       this.imu.getAngularVelocity().setY(event.values[1]);
       this.imu.getAngularVelocity().setZ(event.values[2]);
-      double[] tmpCov = {0.0025,0,0, 0,0.0025,0, 0,0,0.0025};// TODO Make Parameter
+      double[] tmpCov = {angvelCov, 0, 0, 0, angvelCov, 0, 0, 0, angvelCov};// TODO Make Parameter
       this.imu.setAngularVelocityCovariance(tmpCov);
       this.gyroTime = event.timestamp;
     }
@@ -165,7 +171,7 @@ public class ImuPublisher implements NodeMain
       this.imu.getOrientation().setX(quaternion[1]);
       this.imu.getOrientation().setY(quaternion[2]);
       this.imu.getOrientation().setZ(quaternion[3]);
-      double[] tmpCov = {0.001,0,0, 0,0.001,0, 0,0,0.001};// TODO Make Parameter
+      double[] tmpCov = {orientCov, 0, 0, 0, orientCov, 0, 0, 0, orientCov};// TODO Make Parameter
       this.imu.setOrientationCovariance(tmpCov);
       this.quatTime = event.timestamp;
     }
@@ -198,6 +204,19 @@ public class ImuPublisher implements NodeMain
     this.sensorManager = manager;
   }
 
+  /**
+   * Overloaded constructor with the covariances.
+   * @param acov linear acceleration covariance
+   * @param avcov angular velocity covariance
+   * @param ocov orientation covariance
+   */
+  public ImuPublisher(SensorManager manager, float acov, float avcov, float ocov)
+  {
+    log.info("ImuPublisher constructor...");
+    this.sensorManager = manager;
+    
+  }
+  
   public GraphName getDefaultNodeName()
   {
     return GraphName.of("android_sensors_driver/imuPublisher");

@@ -42,6 +42,7 @@ import android.app.PendingIntent;
 import android.util.Log;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.content.res.Configuration;
 
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
