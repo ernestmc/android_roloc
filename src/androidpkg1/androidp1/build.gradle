@@ -14,22 +14,29 @@
  * the License.
  */
 
-/* 
- Examples of 
+/*
+ Examples of
    1) dependencies from another project in this gradle stack.
    2,3) open ranged dependencies from a maven repository.
-   
+
    It's a good idea to restrict the open ranged dependency to
    the patch version to avoid breakages due to api changes
    which usually occur on minor and major version numbers.
 */
- 
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+
 dependencies {
   compile 'org.ros.android_core:android_10:[0.2,0.3)'
   compile 'org.ros.android_core:android_15:[0.2,0.3)'
   //compile files('src/main/libs/snakeyaml-android-1.8-SNAPSHOT.jar')
   //compile 'org.yaml:snakeyaml:1.8'
   compile fileTree(dir: "$buildDir/native-libs", include: '*.jar')
+  compile 'com.github.creativa77.base_controller:base_controller:0.1.4'
+  compile 'org.yaml:snakeyaml:1.17'
 }
 
 
@@ -44,7 +51,7 @@ android {
     versionName "1.0"
   }
 }
- 
+
 task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {
     destinationDir file("$buildDir/native-libs")
     baseName 'native-libs'

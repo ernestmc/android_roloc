@@ -26,6 +26,7 @@ import org.ros.node.NodeMain;
 import org.ros.node.NodeMainExecutor;
 import org.ros.node.parameter.ParameterTree;
 import org.ros.RosCore;
+import org.ros.namespace.GraphName;
 
 import org.ros.android.android_sensors_driver.ImuPublisher;
 
@@ -35,13 +36,39 @@ import android.hardware.SensorManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.ros.rosjava_tutorial_native_node.LocalizationNativeNode;
+import com.github.rosjava.android.androidp1.LocalizationNativeNode;
 import java.net.URI;
 import java.util.Arrays;
 
+import com.github.c77.base_controller.BaseControllerNode;
+import com.github.c77.base_controller.BaseStatusPublisher;
+import com.github.c77.base_driver.kobuki.KobukiBaseDevice;
+import com.github.c77.base_controller.BaseOdomPublisher;
+import com.github.c77.base_driver.BaseDevice;
+
+import android.hardware.usb.UsbDevice;
+import android.hardware.usb.UsbManager;
+import android.content.BroadcastReceiver;
+
+import com.github.rosjava.android.androidp1.MoveBaseNativeNode;
+import com.github.rosjava.android.androidp1.ParameterLoaderNode;
+import com.github.rosjava.android.androidp1.KobukiNodeLoader;
+
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+
+import android.os.Bundle;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 public class Androidp1 extends RosActivity
 {
+    private static final String ACTION_USB_PERMISSION = "com.github.rosjava.android.androidp1.USB_PERMISSION";
     private RosCore myRoscore;
     private Log log = LogFactory.getLog(Androidp1.class);
     private NodeMainExecutor nodeMainExecutor = null;
@@ -50,106 +77,252 @@ public class Androidp1 extends RosActivity
     private LocalizationNativeNode localizationNativeNode;
     private ImuPublisher imuNode;
     final static String appName = "RoLoc_test1";
-    
+    private BaseControllerNode baseControllerNode;
+    private BaseStatusPublisher baseStatusPublisher;
+    // USB
+    private UsbManager usbManager;
+    private BroadcastReceiver usbAttachedReceiver;
+    private BroadcastReceiver usbDetachedReceiver;
+    private PendingIntent usbPermissionIntent;
+    private Map<UsbDevice, NodeMain[]> usbNodes = new HashMap<UsbDevice, NodeMain[]>();
+
+    private CountDownLatch nodeMainExecutorLatch;
+    private int paramterYmlResource;
+
     public Androidp1()
     {
         super(appName, appName);
-        
+
         //log.info("Creating a ROS master...");
-        
+
         // create the ROS master listening at the specified port
         //myRoscore = RosCore.newPublic(11311);
         /*myRoscore = RosCore.newPrivate();
-        
+
         myRoscore.start();
         try {
             myRoscore.awaitStart();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }*/
+
+        nodeMainExecutorLatch = new CountDownLatch(1);
+        paramterYmlResource = R.raw.kobuki;
     }
-    
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Keep the screen always on
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        // UI
+        setContentView(R.layout.main);
+        // TODO(pablisho) Set UI components
+
+        // USB handling code
+        usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+        usbPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+        usbAttachedReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                log.info("Received USB Intent");
+                if (intent.getAction() == ACTION_USB_PERMISSION &&
+                        intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
+                    onDeviceReady((UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE));
+                }
+            }
+        };
+        usbDetachedReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                log.info("Received USB disconnection Intent");
+                UsbDevice device = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                onDeviceDetached(device);
+            }
+        };
+      }
+
     @Override
     protected void init(NodeMainExecutor nodeMainExecutor)
     {
         log.info("Androidp1 init");
-        
+
         // Store a reference to the NodeMainExecutor and unblock any processes that were waiting
         // for this to start ROS Nodes
         this.nodeMainExecutor = nodeMainExecutor;
+        nodeMainExecutorLatch.countDown();
+
         masterUri = getMasterUri();
-        //masterUri = myRoscore.getUri();
         hostName = getRosHostname();
 
         log.info(masterUri);
 
-        // Load ROS parameters in the parameter server
-        //NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(hostName);
-        //nodeConfiguration.setMasterUri(masterUri);
+        // Trigger asking permission to access any devices that are already connected
+        UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+        for (UsbDevice device : manager.getDeviceList().values()) {
+            manager.requestPermission(device, usbPermissionIntent);
+        }
 
-        /*parameterLoaderNode = new ParameterLoaderNode(getResources().openRawResource(R.raw.ros_parameters), this.getExternalCacheDir(), true);
-        nodeConfiguration.setNodeName("parameter_loader"); //FIXME: There is a naming collision with ParameterLoaderNode.java
-        nodeMainExecutor.execute(parameterLoaderNode, nodeConfiguration);*/
-        
-        startParameterLoader();
+        // Find the first available driver.
+        UsbSerialDriver driver = UsbSerialProber.findFirstDevice(usbManager);
+
+
+       /* startParameterLoaderNode();
         startImu();
-        startLocalization();        
+        startLocalization();*/
+
+        // Create ROS node for base move
+       /*log.info("Starting move base jni node");
+       NodeConfiguration nodeConf4 = NodeConfiguration.newPublic(hostName);
+       nodeConf4.setMasterUri(masterUri);
+       NativeNodeMain moveBase = new MoveBaseNativeNode();
+       nodeMainExecutor.execute(moveBase, nodeConf4);*/
     }
-    
+
     public void onStart(final ConnectedNode connectedNode)
     {
         // Load start-up parameters
         /*ParameterTree parameterTree = connectedNode.getParameterTree();
-        
+
         configRobotLocalization(parameterTree);*/
-        
+
     }
-    
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    registerReceiver(usbAttachedReceiver, new IntentFilter(ACTION_USB_PERMISSION));
+    registerReceiver(usbDetachedReceiver, new IntentFilter(
+            UsbManager.ACTION_USB_DEVICE_DETACHED));
+  }
+
+  @Override
+  public void onPause() {
+    super.onPause();
+    /*unregisterReceiver(usbAttachedReceiver);
+    unregisterReceiver(usbDetachedReceiver);
+    mTango.disconnect();*/
+  }
+
+  @Override
+  protected void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
+    onUsbDeviceAttached(intent);
+  }
+
+  private void onUsbDeviceAttached(Intent intent) {
+    if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+        UsbDevice usbDevice = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+        onDeviceReady(usbDevice);
+    }
+  }
+
+  /**
+   * Called when permission has been granted to a device
+   * It routes to the appropriate node starting code
+   */
+  private void onDeviceReady(final UsbDevice device) {
+      new Thread() {
+          @Override
+          public void run() {
+              log.info("Connected device: vendor" + device.getVendorId() + "product: " + device.getProductId());
+              // Only proceed if the application is ready to start nodes
+              try {
+                  nodeMainExecutorLatch.await();
+              } catch (InterruptedException e) {
+                  throw new RuntimeException(e);
+              }
+
+              // See what type of device it is and start the appropriate node depending on it
+              try {
+                  // Start base controller
+
+                  // Dynamically load the corresponding NodeLoader class
+                  if (device.getVendorId() == 1027 && device.getProductId() == 24577) {
+                      log.info("KOBUKIII :D");
+                      // Instantiate it
+                      UsbDeviceNodeLoader loader = new KobukiNodeLoader(nodeMainExecutor, getMasterUri(), getRosHostname());
+                      log.info("Loader found and instantiated. About to start node");
+
+                      // Create the node, keeping a reference of created nodes to allow shutting
+                      // down properly on application shutdown or when the device is disconnected
+                      NodeMain[] newUsbNodes = loader.startNodes(device, usbManager);
+                      if (newUsbNodes != null) {
+                          usbNodes.put(device, newUsbNodes);
+                          log.info(newUsbNodes.length + " nodes started");
+                      } else {
+                          log.info("startNodes returned null");
+                      }
+                  }
+              } catch (Exception e) {
+                  log.info("Couldn't start Node for connected device", e);
+              }
+          }
+      }.start();
+  }
+
+  /**
+   * Called when a USB device has been disconnected
+   */
+  private void onDeviceDetached(UsbDevice device) {
+      NodeMain[] nodeMains = usbNodes.get(device);
+      if (nodeMains != null) {
+          for (NodeMain nodeMain : nodeMains) {
+              // Shutdown this node, considering it has been unplugged
+              log.info("Device for node unplugged, shutting down");
+              nodeMainExecutor.shutdownNodeMain(nodeMain);
+          }
+      } else {
+          log.info("USB device unplugged but no corresponding node found");
+      }
+  }
+
     // Create a native robot_localization node
     private void startLocalization()
     {
         log.info("Starting localization...");
-        
+
         NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(hostName);
-        
+
         nodeConfiguration.setMasterUri(masterUri);
         nodeConfiguration.setNodeName("RolocNode");
-        
+
         localizationNativeNode = new LocalizationNativeNode();
-        
+
         nodeMainExecutor.execute(localizationNativeNode, nodeConfiguration);
     }
-    
+
     // Create IMU publisher node
     private void startImu()
     {
         log.info("Starting imu...");
-        
+
         NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(hostName);
         SensorManager mSensorManager = (SensorManager)this.getSystemService(SENSOR_SERVICE);
 
         nodeConfiguration.setMasterUri(masterUri);
         nodeConfiguration.setNodeName("ImuNode");
-        
+
         imuNode = new ImuPublisher(mSensorManager);
-        
+
         log.info("About to execute ImuNode...");
         nodeMainExecutor.execute(imuNode, nodeConfiguration);
     }
-    
+
     // Load the parameter loader node. It dies as soon as it loads the parameters.
-    private void startParameterLoader()
+    private void startParameterLoaderNode()
     {
         NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(hostName);
 
         nodeConfiguration.setMasterUri(masterUri);
         nodeConfiguration.setNodeName("parameter_loader_node");
-        
-        ParameterLoaderNode paramNode = new ParameterLoaderNode();
-        
+
+        ParameterLoaderNode paramNode = new ParameterLoaderNode(getResources().openRawResource(paramterYmlResource));
+
         nodeMainExecutor.execute(paramNode, nodeConfiguration);
     }
-    
+
     /*private void configRobotLocalization(ParameterTree paramTree)
     {
         boolean imuConfig[] = {false, false, false,
@@ -157,18 +330,17 @@ public class Androidp1 extends RosActivity
                          false, false, false,
                          false, false, false,
                          true, true, true};
-        
+
         paramTree.set("two_d_mode", true);
         paramTree.set("base_link_frame", "imu");
-        
-        paramTree.set("imu0", "/android/imu");        
+
+        paramTree.set("imu0", "/android/imu");
         paramTree.set("imu0_config", Arrays.asList(imuConfig));
     }*/
-    
+
     /*public void stopLocalization()
     {
         this.nodeMainExecutor.shutdownNodeMain(localizationNativeNode);
     }*/
-    
 
 }
